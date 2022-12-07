@@ -2,7 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  /* width should be 100% but button in Header.js was not showning in browser */
+  width: 90%;
   height: 5rem;
   background-color: #8a2b06;
   color: white;

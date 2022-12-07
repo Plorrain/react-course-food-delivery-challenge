@@ -8,6 +8,7 @@ const Header = (props) => {
     <Fragment>
       <header className={classes.header}>
         <h1>React meals</h1>
+        {/* Button not showing in browser -->  header width reduced to 90% needs to be ifxed*/}
         <button>Cart</button>
       </header>
       <div className={classes['main-image']}>
