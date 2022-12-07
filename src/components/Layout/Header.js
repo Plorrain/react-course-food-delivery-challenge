@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import mealsImage from '../../assets/meals.jpg';
-import classes from './Header.modul.css';
+import classes from './Header.module.css';
 
 const Header = (props) => {
    return (
