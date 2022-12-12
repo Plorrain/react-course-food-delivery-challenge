@@ -1,7 +1,10 @@
 import classes from './MealItem.module.css';
 
 const MealItem = (props) => {
-  const price = `$${props.price.toFixed(2)}`;
+  // the ? was necessary because react considers to.Fixed to be
+  // attached to an undefined function
+  // will probably not be useful when it won't be undefinded ??
+  const price = `$${props.price?.toFixed(2)}`;
 
   return (
     <li className={classes.meal}>
