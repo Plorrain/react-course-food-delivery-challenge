@@ -33,7 +33,16 @@ const AvailableMeals = () => {
   // key={meal.id} had to be added to remove error from browser
   // every item of a list needs an ID
 
-  const mealsList = DUMMY_MEALS.map((meal) => <MealItem key={meal.id} />); //<li key={meal.id}>{meal.name}</li>);
+  const mealsList = DUMMY_MEALS.map((meal) => (
+    <MealItem
+      key={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
+  //<li key={meal.id}>{meal.name}</li>);
+
   return (
       <section className={classes.meals}>
         <Card>
