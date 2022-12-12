@@ -1,4 +1,5 @@
 import Card from '../UI/Card';
+import MealItem from './Mealitem/MealItem';
 import classes from './AvailableMeals.module.css';
 
 const DUMMY_MEALS = [
@@ -32,7 +33,7 @@ const AvailableMeals = () => {
   // key={meal.id} had to be added to remove error from browser
   // every item of a list needs an ID
 
-  const mealsList = DUMMY_MEALS.map((meal) => <li key={meal.id}>{meal.name}</li>);
+  const mealsList = DUMMY_MEALS.map((meal) => <MealItem key={meal.id} />); //<li key={meal.id}>{meal.name}</li>);
   return (
       <section className={classes.meals}>
         <Card>
