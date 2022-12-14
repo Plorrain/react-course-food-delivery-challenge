@@ -1,11 +1,11 @@
-import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import { Fragment } from 'react';
 
 import classes from './Modal.module.css';
 
 const Backdrop = (props) => {
   return (
-    <div className={classes.backdrop} />
+    <div className={classes.backdrop} onClick={props.onClose} />
   );
 };
 
@@ -23,7 +23,7 @@ const Modal = (props) => {
   return (
     <Fragment>
       {/* portalling is available by creating div id in html index (public folder) and by importing reactDOM */}
-      {ReactDOM.createPortal(<Backdrop />, portalElement)}
+      {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
       {ReactDOM.createPortal(
       <ModalOverlay>
         {props.children}

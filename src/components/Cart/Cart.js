@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import Modal from '../UI/Modal';
+import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
 
 const Cart = (props) => {
@@ -11,19 +11,22 @@ const Cart = (props) => {
       ))}
     </ul>
   );
-  // again the key={item.id} in the <li> had to be added otherwise errors
+  // the key={item.id} in the <li> had to be added otherwise errors
 
   return (
     <Fragment>
-      <Modal>
+      <Modal onClose={props.onClose}>
         {cartItems}
         <div className={classes.total}>
           <span>Total Amount</span>
           <span>35.52</span>
         </div>
         <div className={classes.actions}>
-          <button className={classes['button--alt']}>Close</button>
-          <button calssName={classes.button}>Order</button>
+          {/* little victory: guessed the "onClick={props.onClose}" by myself !! */}
+          <button className={classes["button--alt"]} onClick={props.onClose}>
+            Close
+          </button>
+          <button className={classes.button}>Order</button>
         </div>
       </Modal>
     </Fragment>
