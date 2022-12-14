@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import ReactDOM from 'react-dom';
 
 import classes from './Modal.module.css';
 
@@ -8,7 +9,7 @@ const Backdrop = (props) => {
   );
 };
 
-const Overlay = (props) => {
+const ModalOverlay = (props) => {
   return (
     <div className={classes.modal}>
       <div className={classes.content}>{props.children}</div>
@@ -16,11 +17,17 @@ const Overlay = (props) => {
   );
 };
 
+const portalElement = document.getElementById('overlays');
+
 const Modal = (props) => {
   return (
     <Fragment>
-      <Backdrop />
-      <Overlay />
+      {/* portalling is available by creating div id in html index (public folder) and by importing reactDOM */}
+      {ReactDOM.createPortal(<Backdrop />, portalElement)}
+      {ReactDOM.createPortal(
+      <ModalOverlay>
+        {props.children}
+      </ModalOverlay>, portalElement)}
     </Fragment>
   );
 };
